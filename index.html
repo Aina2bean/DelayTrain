@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>電車遅延チェック -Fetchの練習-</title>
-    <script src="js/train.js"></script>
 </head>
 <body>
     <h1>電車遅延チェック -Fetchの練習-</h1>
     <div id="input-area">
-        <form>
+        <form action="javascript:void(0)">
             <input id="input-station" type="text" name="station" size="20" placeholder="地元の路線を入力してください">
             <button id="input-button">決定して遅延を確認</button>
         </form>
     </div>
-    <div id="result-area">ここに出る</div>
+    <div id="result-area">
+        <p>ここに出る</p>
+    </div>
 </body>
+<script src="js/train.js"></script>
 </html>

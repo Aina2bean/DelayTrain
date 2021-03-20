@@ -1,8 +1,7 @@
+//HTML側の各フォーム・エリアのIDを取得
 let inputStation = document.getElementById('input-station');
 let inputButton = document.getElementById('input-button');
 let resultOutput = document.getElementById('result-area');
-
-let localTrain = '特急サザン' // 自分の最寄り駅の路線の指定
 
 let url = 'https://tetsudo.rti-giken.jp/free/delay.json'; // 読み込むjsonファイルの指定
 fetch(url)
@@ -22,15 +21,23 @@ function setData(json){
     }
     result = delayInfo();
     console.log(result); // 配列が変数の中に入っているか確認用のconsole.log
-
-    // 指定した路線が含まれているかの判断
-    if(result.indexOf(localTrain) == -1 ) {
-        // 遅延していない時の処理
-        console.log(localTrain + 'は遅れてないよ');
-    } else {
-        // 遅延している時の処理
-        console.log(localTrain + 'は遅れてるよ');
-    }
+    return result;
 }
 
+inputButton.addEventListener('click', function(){
+    let localTrain = inputStation.value; // 自分の最寄り駅の路線の指定
 
+    if(localTrain == '') {
+        // 空白の場合エラーメッセージを出す
+        resultOutput.innerHTML = '<p class="error">駅名を入力してください</p>';
+    } else {
+        // 指定した路線が含まれているかの判断
+        if(result.indexOf(localTrain) == -1 ) {
+            // 遅延していない時の処理
+            resultOutput.innerHTML = '<p>' + localTrain + 'は遅れてないよ</p>';
+        } else {
+            // 遅延している時の処理
+            resultOutput.innerHTML = '<p>' + localTrain + 'は遅れてるよ</p>';
+        }
+    }
+});
