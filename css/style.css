@@ -4,3 +4,8 @@
 .error {
     color: red;
 }
+
+/* フォーム下に表示される遅延情報メッセージ */
+.text-bold {
+    font-weight: bold;
+}

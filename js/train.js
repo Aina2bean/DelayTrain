@@ -27,17 +27,17 @@ function setData(json){
 inputButton.addEventListener('click', function(){
     let localTrain = inputStation.value; // 自分の最寄り駅の路線の指定
 
-    if(localTrain == '') {
+    if(localTrain === '') {
         // 空白の場合エラーメッセージを出す
         resultOutput.innerHTML = '<p class="error">駅名を入力してください</p>';
     } else {
         // 指定した路線が含まれているかの判断
         if(result.indexOf(localTrain) == -1 ) {
             // 遅延していない時の処理
-            resultOutput.innerHTML = '<p>' + localTrain + 'は遅れてないよ</p>';
+            resultOutput.innerHTML = '<p><span class="text-bold">' + localTrain + '</span>は遅れてないよ</p>';
         } else {
             // 遅延している時の処理
-            resultOutput.innerHTML = '<p>' + localTrain + 'は遅れてるよ</p>';
+            resultOutput.innerHTML = '<p><span class="text-bold">' + localTrain + '</span>は遅れてるよ</p>';
         }
     }
 });
